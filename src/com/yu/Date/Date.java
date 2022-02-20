@@ -63,5 +63,8 @@ public class Date {
         LocalDateTime yestoday = today.minusDays(1);
         System.out.println(today);
         System.out.println(yestoday);
+
+        Error error = new AbstractMethodError();
+        System.out.println(error);
     }
 }

@@ -21,14 +21,13 @@ public class ThreeWays {
         /**
          * 创建线程池创建线程
          */
-        ExecutorService executorservice = Executors.newFixedThreadPool(10);
-
-        for(int i = 0; i < 10; i++) {
-            RunnableThread thread = new RunnableThread();
-            Thread t = new Thread(thread);
-            t.start();
-        }
-        executorservice.shutdown();
+        ScheduledExecutorService service = Executors.newScheduledThreadPool(5);
+        service.schedule(new Runnable(){
+            @Override
+            public void run() {
+                System.out.println("delay 3 second");
+            }
+        }, 3, TimeUnit.SECONDS);
     }
 }
 //class Tickets<Objecta> implements Callable<Object> {
